@@ -7,9 +7,21 @@ class GameController < ApplicationController
     # The move the user chose is in the variable @user_move.
     # ===============================================================
 
-    @computer_move = "Replace this string with the correct value."
+    @computer_move = ["rock" , "paper" , "scissors"].sample
+        if @computer_move == @user_move
+          @result = "It's a tie!"
 
-    @result = "Replace this string with the correct value."
+
+        elsif (@user_move == "rock" && @computer_move == "paper") || (@user_move == "paper" && @computer_move == "scissors") || (@user_move == "scissors" && @computer_move == "rock")
+         @result = "You lose!"
+
+        elsif (@user_move == "rock" && @computer_move == "scissors") || (@user_move == "paper" && @computer_move == "rock") || (@user_move == "scissors" && @computer_move == "paper")
+          @result = "You win!"
+
+        end
+
+      end
+
 
     # ===============================================================
     # Your code goes above.
